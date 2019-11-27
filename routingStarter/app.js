@@ -29,7 +29,7 @@ const server = http.createServer((req, res) => {
     else if(req.url === "/contact"){
         htmlPageSender(200, contactFile, res);
     }
-    else if (req.url === "/api/myj"){
+    else if (req.url === "/api/myJ"){
         res.writeHead(200, {"Content-Type": "application/json"});
         res.end(JSON.stringify(myJsonObj));
     }
