@@ -1,41 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        body{
-            background: blue;
-            font-family: veranda;
-            color: #fff;
-            padding: 30px;
-        }
-        h1 {
-            font-size: 48px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-align: center;
-        }
-        h2 {
-            font-size: 30px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-align: center;
-        }
-        p, li {
-            font-size: 16px;
-            text-align: center;
-            list-style: none;
-        }
 
-    </style>
-</head>
+    <%-include ("partials/headInfo") %>
 
 <body>
 
-    <%- include ("partials/nav.ejs"); %>
+    <%- include ("partials/nav"); %>
   
 
     <h1>Hello <%= person %>, Welcome to your profile. </h1>
@@ -50,5 +19,7 @@
         <% }); %>    
     </ul>
     
+    <%- include ("partials/footer"); %>
+
 </body>
 </html>
