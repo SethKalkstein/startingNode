@@ -18,37 +18,15 @@
             letter-spacing: 2px;
             text-align: center;
         }
-        h2 {
-            font-size: 30px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-align: center;
-        }
-        p, li {
+        p {
             font-size: 16px;
             text-align: center;
-            list-style: none;
         }
-
     </style>
 </head>
-
 <body>
-
-    <%- include ("partials/nav.ejs"); %>
-  
-
-    <h1>Hello <%= person %>, Welcome to your profile. </h1>
-
-    <p><strong>Height: </strong> <%= data.height %> cm</p>
-    <p> <strong>Job: </strong> <%= data.job %>!</p>
-
-    <h2>Hobbies</h2>
-    <ul>
-        <% data.hobbies.forEach((hobby)=> { %> 
-            <li><%= hobby %></li>
-        <% }); %>    
-    </ul>
-    
+    <% include partials/footer.ejs %>
+    <h1>This website Rocks</h1>
+    <p>It's the best website ever. I swear.</p>
 </body>
 </html>
