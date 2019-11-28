@@ -7,7 +7,23 @@ app.set("view engine", "ejs");
 // app.set('views', path.join(__dirname, 'views'));
 
 app.get("/", (req, res)=> {
-    res.sendfile(__dirname+"/index.html");
+    res.render("index");
+});
+
+app.get("/contact/", (req, res)=> {
+    res.render("contact");
+});
+
+app.get("/profile/:name", (req, res)=> {
+    const personData = {height: 80, job: "cool person", hobbies: ["surfing", "yoga", "drums"]};
+    res.render("profile", {person: req.params.name, data: personData});
+});
+
+app.listen(port);
+
+//sending files, or directly inserting the text in the browser as opposed to rendering views as is done above
+/* app.get("/", (req, res)=> {
+    res.sendFile(__dirname+"/index.html");
     console.log(req.path);
 });
 
@@ -15,12 +31,6 @@ app.get("/contact/", (req, res)=> {
     res.sendfile(__dirname+"/contact.html");
 });
 
-/* app.get("/profile/:id", (req, res)=> {
+app.get("/profile/:id", (req, res)=> {
     res.send("<h1>Welcome to the profile page</h1>\n<p>This is the profile of the person with id: " + req.params.id + "</p>");
 }); */
-app.get("/profile/:name", (req, res)=> {
-    const personData = {height: 80, job: "cool person", hobbies: ["surfing", "yoga", "drums"]};
-    res.render("profile", {person: req.params.name, data: personData});
-});
-
-app.listen(port);
