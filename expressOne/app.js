@@ -1,10 +1,16 @@
 const express = require("express");
-// const path = require("path");
 const app = express();
 const port = 3000;
 
 app.set("view engine", "ejs");
-// app.set('views', path.join(__dirname, 'views'));
+
+//the "/assets" matches the url route. The "assets" inside express.static("assets") matches
+//the folder where the route is being directed
+app.use("/assets", express.static("assets"));
+
+//I could rename my assets folder blah, and when people went to url://www.<thisSite>/assets
+//it will bring up the file in the blah folder as long as it is defined as below;
+// app.use("/assets", express.static("blah"));
 
 app.get("/", (req, res)=> {
     res.render("index");
@@ -20,6 +26,12 @@ app.get("/profile/:name", (req, res)=> {
 });
 
 app.listen(port);
+
+//middleware 
+/* app.use("/assets", (req, res, next) => {
+    console.log(req.url);
+    next();
+}); */
 
 //sending files, or directly inserting the text in the browser as opposed to rendering views as is done above
 /* app.get("/", (req, res)=> {
