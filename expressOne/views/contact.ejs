@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
     <%-include ("partials/headInfo") %>
-    
+
 </head>
 <body>
 
@@ -9,6 +9,16 @@
 
     <h1>Contact Us!</h1>
     <p>We're looking forward to hearing from you :-)</p>
+    <ul>
+        <% for(const key in queryString) { %>
+            <li>
+                <br>
+                <p>The property is <%= key %>.</p>
+                <p>Its value is <%= queryString[key] %>.</p>
+                <br>
+            </li>
+            <% } %>    
+        </ul>
 
     <%- include ("partials/footer"); %>
 

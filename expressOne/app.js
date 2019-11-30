@@ -17,7 +17,13 @@ app.get("/", (req, res)=> {
 });
 
 app.get("/contact/", (req, res)=> {
-    res.render("contact");
+    console.log(req.query);
+    const rs = req.query;
+    for(const key in rs){
+        console.log("key: " + key);
+        console.log("value: " + rs[key]);
+    }
+    res.render("contact", {queryString: req.query});
 });
 
 app.get("/profile/:name", (req, res)=> {
