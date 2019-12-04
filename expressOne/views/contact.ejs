@@ -20,13 +20,13 @@
          <% } %>    
     </ul>
 
-    <form id="contact-form" action="POST">
+    <form id="contact-form" method="POST" action="/contact/">
         <label for="who">Who do you want to contact?</label>
-        <input type="text" name="who" value="<%= queryString.person %>" />
+        <input type="text" name="who" value="" />
         <label for="dept">What Department</label>
-        <input type="text" name="dept" value="<%= queryString.dept %>" />
+        <input type="text" name="dept" value="" />
         <label for="email">Your Email?</label>
-        <input type="email" name="email" value="<%= queryString.email %>" />
+        <input type="email" name="email" />
         <input type="submit" value="submit" />
      </form>
     

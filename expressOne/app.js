@@ -1,6 +1,9 @@
 const express = require("express");
+const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
+
+const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.set("view engine", "ejs");
 
@@ -17,13 +20,25 @@ app.get("/", (req, res)=> {
 });
 
 app.get("/contact/", (req, res)=> {
-    console.log(req.query);
+/*     console.log(req.query);
     const rs = req.query;
     for(const key in rs){
         console.log("key: " + key);
         console.log("value: " + rs[key]);
-    }
+    } */
     res.render("contact", {queryString: req.query});
+});
+
+app.post("/contact/", urlencodedParser, (req, res) => {
+    // res.send('welcome, ' + req.body);
+    // res.send(req.body);
+    console.log(req.body);
+    // const rs = req.query;
+    // for(const key in rs){
+    //     console.log("key: " + key);
+    //     console.log("value: " + rs[key]);
+    // }    
+    res.render("contact-success", {submittedData: req.body});
 });
 
 app.get("/profile/:name", (req, res)=> {
