@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+    <%-include ("partials/headInfo") %>
+
+</head>
+<body>
+
+    <%- include ("partials/nav"); %>
+
+    <h1>Contact Us!</h1>
+    <p>Thanks for getting in touch with us</p>
+    <p>You contacted <%= submittedData.who %> in the <%= submittedData.dept %> department.</p>
+    <p>We will contact you at <%= submittedData.email %></p>
+    <ul>
+        <% for(const key in submittedData) { %>
+            <li>
+                <br>
+                <p>The property is <%= key %>.</p>
+                <p>Its value is <%= submittedData[key] %>.</p>
+                <br>
+            </li>
+         <% } %>    
+    </ul>
+
+    
+    <%- include ("partials/footer"); %>
+
+</body>
+</html>
